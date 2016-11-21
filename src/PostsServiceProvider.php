@@ -18,10 +18,12 @@ class PostsServiceProvider extends ServiceProvider {
         
         $this->publishes([
             __DIR__ . '/migrations' => $this->app->databasePath() . '/migrations',
-            __DIR__ . '/app/Views' => base_path('resources/views/LukasGreed/posts'),            
-            __DIR__ . '/app/Controllers' => base_path('app/Http/Controllers'),
-            __DIR__ . '/app/Models' => base_path('app/Models'),
+           // __DIR__ . '/publish/Views' => base_path('resources/views/LukasGreed/posts'),            
+            __DIR__ . '/publish/Controllers' => base_path('app/Http/Controllers'),
+            __DIR__ . '/publish/Models' => base_path('app/Models'),
         ]);
+        
+        
     }
 
     /**

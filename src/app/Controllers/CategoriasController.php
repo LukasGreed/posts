@@ -3,6 +3,7 @@
 namespace LukasGreed\posts\app\Controllers;
 
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Input;
 
 class CategoriasController extends Controller {
 
@@ -19,7 +20,7 @@ class CategoriasController extends Controller {
     public function show($id) {
         $filter = Input::all();
         $filter['id'] = $id;
-        return \Response::json($this->model->getAll($filter)->toArray());
+        return \Response::json($this->model->getOne($filter)->toArray());
     }
 
     public function save() {
@@ -27,7 +28,6 @@ class CategoriasController extends Controller {
         $categoria = $this->model->find($id);
         $categoria->create([
                     'nm_categoria' => $data['nm_categoria'],
-                    
                 ])
                 ->save();
         return \Response::json(array('success' => true));
@@ -37,7 +37,7 @@ class CategoriasController extends Controller {
         $data = Input::all();
         $categoria = $this->model->find($id);
         $categoria->update([
-                  'nm_categoria' => $data['nm_categoria'],                  
+                    'nm_categoria' => $data['nm_categoria'],
                 ])
                 ->push();
         return \Response::json(array('success' => true));

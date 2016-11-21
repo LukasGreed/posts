@@ -42,7 +42,7 @@ class Posts extends Model {
                         ->Paginate($filter['pagination']);
     }
 
-    public function get($data = array()) {
+    public function getOne($data = array()) {
 
         $filter = array_merge($this->filter, $data);
 
@@ -54,6 +54,7 @@ class Posts extends Model {
         if ($id)
             return $query->find($id);
     }
+    
     public function scopeRelacao($query, $relacao) {
         if ($relacao)
             return $query->with($relacao);
@@ -61,7 +62,7 @@ class Posts extends Model {
 
     public function scopeTitulo($query, $titulo) {
         if ($titulo)
-            return $query->where('nm_titulo', $titulo);
+            return $query->where('nm_titulo', 'like', '%' . $titulo . '%');
     }
 
     public function scopeIdCategoria($query, $id) {
