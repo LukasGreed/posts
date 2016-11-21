@@ -1,0 +1,12 @@
+{
+    "name": "LukasGreed/posts",
+    "description": "wp like post and categories manager",
+    "authors": [
+        {
+            "name": "Lukas lapa",
+            "email": "lapaff7@gmail.com"
+        }
+    ],
+    "minimum-stability": "dev",
+    "require": {}
+}
